@@ -1,0 +1,170 @@
+@media (max-width: 980px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .site-nav {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 76px;
+    display: grid;
+    gap: 0.35rem;
+    padding: 1rem 20px 1.4rem;
+    background: var(--color-paper);
+    border-top: 1px solid var(--color-line);
+    box-shadow: 0 18px 30px rgba(21, 33, 40, 0.08);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-120%);
+    transition: transform 220ms ease, opacity 220ms ease;
+  }
+
+  .site-nav.is-open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .site-nav a {
+    padding: 0.8rem 0.95rem;
+  }
+
+  .site-nav .nav-cta {
+    margin-left: 0;
+    margin-top: 0.35rem;
+    text-align: center;
+  }
+
+  .split-layout,
+  .contact-grid,
+  .rooms-intro-grid,
+  .luxury-room-card,
+  .service-band-inner,
+  .amenity-accordion-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .amenities-grid,
+  .amenities-page-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .gallery-page-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .footer-grid,
+  .values-grid,
+  .room-preview-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .container {
+    width: min(100% - 28px, 1140px);
+  }
+
+  .section {
+    padding: 4rem 0;
+  }
+
+  .hero {
+    min-height: 620px;
+  }
+
+  .hero-content {
+    padding: 6rem 0 4rem;
+  }
+
+  .hero h1,
+  .page-hero h1,
+  .rooms-hero h1 {
+    font-size: 3.35rem;
+  }
+
+  .page-hero,
+  .rooms-hero {
+    padding: 6rem 0 4.5rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-page-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-tile-large {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .gallery-grid img,
+  .feature-image,
+  .gallery-tile {
+    height: 320px;
+  }
+
+  .gallery-grid img:nth-child(2) {
+    margin-top: 0;
+  }
+
+  .amenities-grid,
+  .amenities-page-grid,
+  .service-list {
+    grid-template-columns: 1fr;
+  }
+
+  .enquiry-inner {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .room-details,
+  .feature-panel,
+  .contact-card,
+  .value-card {
+    padding: 2rem;
+  }
+
+  .room-heading {
+    display: grid;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-mark {
+    width: 42px;
+    height: 42px;
+  }
+
+  .brand-name {
+    font-size: 1.02rem;
+  }
+
+  .brand-subtitle {
+    font-size: 0.62rem;
+  }
+
+  .hero h1,
+  .page-hero h1,
+  .rooms-hero h1 {
+    font-size: 2.65rem;
+  }
+
+  .hero-actions,
+  .center-action {
+    display: grid;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .room-image {
+    min-height: 280px;
+  }
+}
