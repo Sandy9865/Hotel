@@ -81,7 +81,7 @@
   }
 
   .site-nav {
-    @apply flex items-center gap-[0.45rem] text-[0.94rem] font-extrabold max-[980px]:pointer-events-none max-[980px]:absolute max-[980px]:left-0 max-[980px]:right-0 max-[980px]:top-[76px] max-[980px]:grid max-[980px]:translate-y-[-120%] max-[980px]:gap-[0.35rem] max-[980px]:border-t max-[980px]:border-line max-[980px]:bg-paper max-[980px]:px-5 max-[980px]:pb-[1.4rem] max-[980px]:pt-4 max-[980px]:opacity-0 max-[980px]:shadow-[0_18px_30px_rgba(21,33,40,0.08)] max-[980px]:transition-all max-[980px]:duration-200;
+    @apply flex items-center gap-[0.3rem] text-[0.9rem] font-extrabold max-[980px]:pointer-events-none max-[980px]:absolute max-[980px]:left-0 max-[980px]:right-0 max-[980px]:top-[76px] max-[980px]:grid max-[980px]:translate-y-[-120%] max-[980px]:gap-[0.35rem] max-[980px]:border-t max-[980px]:border-line max-[980px]:bg-paper max-[980px]:px-5 max-[980px]:pb-[1.4rem] max-[980px]:pt-4 max-[980px]:opacity-0 max-[980px]:shadow-[0_18px_30px_rgba(21,33,40,0.08)] max-[980px]:transition-all max-[980px]:duration-200;
   }
 
   .site-nav.is-open {
@@ -89,7 +89,7 @@
   }
 
   .site-nav a {
-    @apply rounded-full px-[0.86rem] py-[0.62rem] text-text transition-colors duration-200 hover:bg-mist hover:text-forest max-[980px]:px-[0.95rem] max-[980px]:py-[0.8rem];
+    @apply rounded-full px-[0.72rem] py-[0.62rem] text-text transition-colors duration-200 hover:bg-mist hover:text-forest max-[980px]:px-[0.95rem] max-[980px]:py-[0.8rem];
   }
 
   .site-nav a.active {
@@ -243,8 +243,26 @@
   .rooms-preview,
   .values-section,
   .gallery-page-section,
-  .luxury-rooms {
+  .luxury-rooms,
+  .location-section,
+  .event-gallery {
     @apply bg-cloud;
+  }
+
+  .location-grid {
+    @apply grid grid-cols-[minmax(0,1fr)_minmax(280px,0.72fr)] items-center gap-12 max-[980px]:grid-cols-1;
+  }
+
+  .location-card {
+    @apply grid gap-4 rounded-hotel border border-line bg-night p-10 text-white shadow-soft max-[760px]:p-8;
+  }
+
+  .location-card span {
+    @apply font-black uppercase tracking-[0.14em] text-sun;
+  }
+
+  .location-card strong {
+    @apply font-heading text-[2rem] leading-tight;
   }
 
   .amenities-grid,
@@ -338,6 +356,10 @@
     background: linear-gradient(rgba(21, 33, 40, 0.72), rgba(21, 33, 40, 0.72)), url("../assets/images/hall.png") center/cover;
   }
 
+  .events-hero {
+    background: linear-gradient(90deg, rgba(21, 33, 40, 0.82), rgba(21, 33, 40, 0.46)), url("../assets/images/hall.png") center/cover;
+  }
+
   .gallery-page-grid {
     @apply grid grid-flow-dense grid-cols-4 gap-4 max-[980px]:grid-cols-2 max-[760px]:grid-cols-1;
   }
@@ -386,6 +408,11 @@
     @apply flex items-center justify-between gap-8 max-[760px]:flex-col max-[760px]:items-start;
   }
 
+  .quick-actions,
+  .booking-actions {
+    @apply flex flex-wrap gap-[0.85rem] max-[480px]:grid max-[480px]:w-full;
+  }
+
   .enquiry-inner p {
     @apply text-white/80;
   }
@@ -406,8 +433,7 @@
     @apply grid-cols-3 max-[980px]:grid-cols-1;
   }
 
-  .value-card p,
-  .contact-form + .contact-card p {
+  .value-card p {
     @apply text-text;
   }
 
@@ -434,6 +460,27 @@
 
   .contact-card {
     @apply bg-night text-white;
+  }
+
+  .booking-actions {
+    @apply my-6;
+  }
+
+  .dark-secondary {
+    @apply border-white/40 text-white hover:bg-white/10;
+  }
+
+  .chairman-section,
+  .event-intro {
+    @apply bg-paper;
+  }
+
+  .chairman-card {
+    @apply rounded-hotel border border-line bg-paper p-10 shadow-soft max-[760px]:p-8;
+  }
+
+  .chairman-card p {
+    @apply text-text;
   }
 
   address {

@@ -1,6 +1,6 @@
 # HOTEL ROYAL SEN Static Website
 
-Clean production-ready static website for HOTEL ROYAL SEN, refactored to use Tailwind CSS as the primary styling system.
+Static website for HOTEL ROYAL SEN in Bardibas, Mahottari, Nepal. The site uses Tailwind CSS, local hotel photos, and small JavaScript helpers for navigation, reveal animations, and room enquiry links.
 
 ## Development
 
@@ -28,24 +28,24 @@ npm run watch:css
 project/
 ├── index.html
 ├── pages/
-│   ├── rooms.html
-│   ├── amenities.html
-│   ├── gallery.html
 │   ├── about.html
-│   └── contact.html
+│   ├── amenities.html
+│   ├── contact.html
+│   ├── events.html
+│   ├── gallery.html
+│   └── rooms.html
 ├── src/
 │   └── tailwind.css
 ├── css/
 │   └── tailwind.css
 ├── js/
+│   ├── animations.js
 │   ├── main.js
-│   ├── rooms.js
-│   └── animations.js
+│   └── rooms.js
 ├── assets/
 │   └── images/
 ├── tailwind.config.js
-├── package.json
-└── README.md
+└── package.json
 ```
 
 ## Notes
@@ -53,5 +53,4 @@ project/
 - Tailwind design tokens live in `tailwind.config.js`.
 - Reusable Tailwind component patterns live in `src/tailwind.css`.
 - The compiled production stylesheet is `css/tailwind.css`.
-- All behavior is externalized into `js/`.
 - The contact form is static and shows a confirmation message without sending data to a server.
