@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="title">
+  <title id="title">Fine dining icon</title>
+  <rect width="96" height="96" rx="22" fill="#e6ebe5"/>
+  <path d="M33 23v50M25 23v18a8 8 0 0 0 16 0V23" fill="none" stroke="#244239" stroke-width="4" stroke-linecap="round"/>
+  <path d="M63 23c-8 7-11 17-10 27h10v23" fill="none" stroke="#244239" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="48" cy="52" r="13" fill="#fffdf7" stroke="#b86645" stroke-width="4"/>
+  <circle cx="48" cy="52" r="5" fill="#e9b85c"/>
+</svg>

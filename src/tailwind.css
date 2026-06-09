@@ -1,0 +1,602 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply m-0 bg-paper font-body text-ink leading-[1.7];
+  }
+
+  img {
+    @apply block max-w-full;
+  }
+
+  a {
+    @apply text-inherit no-underline;
+  }
+
+  button,
+  input,
+  textarea {
+    font: inherit;
+  }
+
+  button {
+    @apply cursor-pointer;
+  }
+
+  ::selection {
+    @apply bg-sun text-night;
+  }
+}
+
+@layer components {
+  .skip-link {
+    @apply absolute left-4 -top-20 z-[100] rounded-hotel bg-sun px-4 py-3 font-extrabold text-night focus:top-4;
+  }
+
+  .container {
+    @apply mx-auto w-[calc(100%-40px)] max-w-[1140px] max-[760px]:w-[calc(100%-28px)];
+  }
+
+  .narrow {
+    @apply max-w-[760px];
+  }
+
+  .site-header {
+    @apply sticky top-0 z-50 border-b border-line bg-paper/95 shadow-header backdrop-blur;
+  }
+
+  .header-inner {
+    @apply flex min-h-[76px] items-center justify-between gap-8;
+  }
+
+  .brand {
+    @apply inline-flex min-w-max items-center gap-3;
+  }
+
+  .brand-mark {
+    @apply grid h-[50px] w-[50px] place-items-center overflow-hidden rounded-full border border-forest/25 bg-cloud font-heading font-extrabold text-forest max-[480px]:h-[42px] max-[480px]:w-[42px];
+  }
+
+  .brand-mark img {
+    @apply h-full w-full object-contain;
+  }
+
+  .brand-name,
+  .brand-subtitle {
+    @apply block;
+  }
+
+  .brand-name {
+    @apply font-heading text-[1.18rem] font-extrabold leading-[1.1] text-night max-[480px]:text-[1.02rem];
+  }
+
+  .brand-subtitle {
+    @apply text-[0.72rem] font-extrabold uppercase tracking-[0.14em] text-muted max-[480px]:text-[0.62rem];
+  }
+
+  .site-nav {
+    @apply flex items-center gap-[0.45rem] text-[0.94rem] font-extrabold max-[980px]:pointer-events-none max-[980px]:absolute max-[980px]:left-0 max-[980px]:right-0 max-[980px]:top-[76px] max-[980px]:grid max-[980px]:translate-y-[-120%] max-[980px]:gap-[0.35rem] max-[980px]:border-t max-[980px]:border-line max-[980px]:bg-paper max-[980px]:px-5 max-[980px]:pb-[1.4rem] max-[980px]:pt-4 max-[980px]:opacity-0 max-[980px]:shadow-[0_18px_30px_rgba(21,33,40,0.08)] max-[980px]:transition-all max-[980px]:duration-200;
+  }
+
+  .site-nav.is-open {
+    @apply max-[980px]:pointer-events-auto max-[980px]:translate-y-0 max-[980px]:opacity-100;
+  }
+
+  .site-nav a {
+    @apply rounded-full px-[0.86rem] py-[0.62rem] text-text transition-colors duration-200 hover:bg-mist hover:text-forest max-[980px]:px-[0.95rem] max-[980px]:py-[0.8rem];
+  }
+
+  .site-nav a.active {
+    @apply bg-mist text-forest;
+  }
+
+  .site-nav .nav-cta {
+    @apply ml-1 bg-rust text-white hover:bg-forest hover:text-white max-[980px]:ml-0 max-[980px]:mt-[0.35rem] max-[980px]:text-center;
+  }
+
+  .site-nav .nav-cta.active {
+    @apply bg-forest text-white;
+  }
+
+  .nav-toggle {
+    @apply hidden h-11 w-11 rounded-hotel border border-line bg-paper p-[0.65rem] max-[980px]:block;
+  }
+
+  .nav-toggle span {
+    @apply my-[5px] block h-0.5 bg-night;
+  }
+
+  .hero {
+    @apply relative grid min-h-[690px] items-end overflow-hidden text-white max-[760px]:min-h-[620px];
+  }
+
+  .hero-media,
+  .hero-media::after {
+    @apply absolute inset-0;
+  }
+
+  .hero-media::after {
+    content: "";
+    background:
+      linear-gradient(180deg, rgba(21, 33, 40, 0.08), rgba(21, 33, 40, 0.78)),
+      linear-gradient(90deg, rgba(21, 33, 40, 0.72), rgba(21, 33, 40, 0.18));
+  }
+
+  .hero-media img {
+    @apply h-full w-full object-cover;
+  }
+
+  .hero-content {
+    @apply relative py-24 pt-36 max-[760px]:pb-16 max-[760px]:pt-24;
+  }
+
+  .hero h1,
+  .page-hero h1,
+  .rooms-hero h1 {
+    @apply m-0 max-w-[800px] font-heading text-[clamp(3rem,7vw,6.6rem)] leading-[0.98] max-[760px]:text-[3.35rem] max-[480px]:text-[2.65rem];
+  }
+
+  .hero p {
+    @apply max-w-[620px] text-[1.08rem] text-white/85;
+  }
+
+  .eyebrow {
+    @apply mb-3 mt-0 text-[0.78rem] font-black uppercase tracking-[0.14em] text-rust;
+  }
+
+  .hero .eyebrow,
+  .page-hero .eyebrow,
+  .rooms-hero .eyebrow,
+  .enquiry-band .eyebrow,
+  .room-service-band .eyebrow,
+  .summer-escape .eyebrow {
+    @apply text-sun;
+  }
+
+  .hero-actions,
+  .center-action {
+    @apply mt-8 flex flex-wrap gap-[0.9rem] max-[480px]:grid;
+  }
+
+  .center-action {
+    @apply justify-center;
+  }
+
+  .button {
+    @apply inline-flex min-h-12 items-center justify-center rounded-hotel border border-transparent px-5 py-[0.82rem] text-[0.9rem] font-black transition-all duration-200 hover:-translate-y-0.5 hover:shadow-soft max-[480px]:w-full;
+  }
+
+  .button-primary {
+    @apply bg-forest text-white hover:bg-night;
+  }
+
+  .button-secondary {
+    @apply border-white/60 text-white hover:bg-white/10;
+  }
+
+  .section {
+    @apply py-24 max-[760px]:py-16;
+  }
+
+  .section-heading {
+    @apply mb-10 max-w-[720px];
+  }
+
+  .section-heading h2,
+  .section-copy h2,
+  .escape-content h2,
+  .enquiry-inner h2,
+  .contact-card h2,
+  .value-card h2 {
+    @apply m-0 font-heading text-[clamp(2.1rem,4vw,4rem)] leading-[1.05];
+  }
+
+  .lead {
+    @apply text-[1.08rem] font-bold text-forest;
+  }
+
+  .section-copy p,
+  .enquiry-inner p,
+  .contact-card p,
+  .value-card p {
+    @apply text-text;
+  }
+
+  .split-layout {
+    @apply grid grid-cols-[minmax(0,1.08fr)_minmax(280px,0.92fr)] items-center gap-16 max-[980px]:grid-cols-1;
+  }
+
+  .text-link {
+    @apply inline-flex items-center border-b-2 border-rust font-black text-forest;
+  }
+
+  .feature-panel,
+  .contact-card,
+  .value-card {
+    @apply rounded-hotel border border-line bg-cloud p-10 shadow-soft max-[760px]:p-8;
+  }
+
+  .feature-panel {
+    @apply bg-night text-white;
+  }
+
+  .feature-panel p,
+  .contact-card p {
+    @apply text-white/75;
+  }
+
+  .stat-number {
+    @apply block font-heading text-7xl leading-none text-sun;
+  }
+
+  .stat-label {
+    @apply mb-4 block font-black;
+  }
+
+  .amenities-section,
+  .rooms-preview,
+  .values-section,
+  .gallery-page-section,
+  .luxury-rooms {
+    @apply bg-cloud;
+  }
+
+  .amenities-grid,
+  .room-preview-grid,
+  .values-grid {
+    @apply grid grid-cols-4 gap-4 max-[980px]:grid-cols-2 max-[760px]:grid-cols-1;
+  }
+
+  .amenity-card,
+  .room-mini-card {
+    @apply min-h-[180px] rounded-hotel border border-line bg-paper p-[1.45rem] shadow-card transition-all duration-200 hover:-translate-y-[5px] hover:border-rust/40 hover:shadow-lift;
+  }
+
+  .value-card {
+    @apply bg-paper text-ink transition-all duration-200 hover:-translate-y-[5px] hover:border-rust/40 hover:shadow-lift;
+  }
+
+  .amenity-icon {
+    @apply mb-[1.15rem] h-[58px] w-[58px] object-contain;
+  }
+
+  .amenity-card h3,
+  .room-mini-card h3 {
+    @apply m-0 font-heading text-[1.35rem];
+  }
+
+  .amenity-card p {
+    @apply mb-0 mt-[0.65rem] text-[0.94rem] text-muted;
+  }
+
+  .amenities-hero {
+    background: linear-gradient(rgba(21, 33, 40, 0.72), rgba(21, 33, 40, 0.72)), url("../assets/images/launge area.png") center/cover;
+  }
+
+  .amenity-feature-section,
+  .gallery-intro,
+  .contact-section {
+    @apply bg-paper;
+  }
+
+  .amenity-accordion-grid {
+    @apply grid grid-cols-[minmax(0,0.85fr)_minmax(320px,1.15fr)] items-start gap-16 max-[980px]:grid-cols-1;
+  }
+
+  .amenity-accordion {
+    @apply grid gap-[0.85rem];
+  }
+
+  .amenity-accordion details {
+    @apply rounded-hotel border border-line bg-paper shadow-[0_10px_24px_rgba(21,33,40,0.05)];
+  }
+
+  .amenity-accordion details[open] {
+    @apply border-moss/50 shadow-soft;
+  }
+
+  .amenity-accordion summary {
+    @apply cursor-pointer px-[1.35rem] py-[1.15rem] font-black text-ink;
+  }
+
+  .amenity-accordion p {
+    @apply m-0 px-[1.35rem] pb-5 text-muted;
+  }
+
+  .summer-escape {
+    @apply text-white;
+    background: linear-gradient(90deg, rgba(21, 33, 40, 0.82), rgba(21, 33, 40, 0.48)), url("../assets/images/front close shot .png") center/cover;
+  }
+
+  .escape-content {
+    @apply max-w-[700px];
+  }
+
+  .escape-content p {
+    @apply text-white/85;
+  }
+
+  .gallery-grid {
+    @apply grid grid-cols-[1.15fr_0.85fr_1fr] gap-4 max-[760px]:grid-cols-1;
+  }
+
+  .gallery-grid img {
+    @apply h-[420px] w-full rounded-hotel object-cover shadow-soft max-[760px]:h-80;
+  }
+
+  .gallery-grid img:nth-child(2) {
+    @apply mt-12 max-[760px]:mt-0;
+  }
+
+  .gallery-hero {
+    background: linear-gradient(rgba(21, 33, 40, 0.72), rgba(21, 33, 40, 0.72)), url("../assets/images/hall.png") center/cover;
+  }
+
+  .gallery-page-grid {
+    @apply grid grid-flow-dense grid-cols-4 gap-4 max-[980px]:grid-cols-2 max-[760px]:grid-cols-1;
+  }
+
+  .gallery-tile {
+    @apply relative m-0 min-h-80 overflow-hidden rounded-hotel bg-night shadow-soft max-[760px]:h-80;
+  }
+
+  .gallery-tile-large {
+    @apply col-span-2 row-span-2 max-[760px]:col-span-1 max-[760px]:row-span-1;
+  }
+
+  .gallery-tile img {
+    @apply h-full min-h-[inherit] w-full object-cover transition-transform duration-[400ms];
+  }
+
+  .gallery-tile:hover img {
+    @apply scale-[1.04];
+  }
+
+  .gallery-tile figcaption {
+    @apply absolute bottom-4 left-4 rounded-hotel bg-paper/90 px-3 py-2 text-[0.82rem] font-black text-night;
+  }
+
+  .room-preview-grid {
+    @apply grid-cols-3 max-[980px]:grid-cols-1;
+  }
+
+  .room-mini-card p {
+    @apply text-muted;
+  }
+
+  .room-price {
+    @apply mb-[0.6rem] mt-0 font-black text-rust;
+  }
+
+  .room-price span {
+    @apply text-[0.8rem] text-muted;
+  }
+
+  .enquiry-band {
+    @apply bg-forest text-white;
+  }
+
+  .enquiry-inner {
+    @apply flex items-center justify-between gap-8 max-[760px]:flex-col max-[760px]:items-start;
+  }
+
+  .enquiry-inner p {
+    @apply text-white/80;
+  }
+
+  .page-hero {
+    @apply bg-night py-20 pt-32 text-white max-[760px]:py-[4.5rem] max-[760px]:pt-24;
+  }
+
+  .page-hero p {
+    @apply text-white/80;
+  }
+
+  .feature-image {
+    @apply h-[520px] w-full rounded-hotel object-cover shadow-soft max-[760px]:h-80;
+  }
+
+  .values-grid {
+    @apply grid-cols-3 max-[980px]:grid-cols-1;
+  }
+
+  .value-card p,
+  .contact-form + .contact-card p {
+    @apply text-text;
+  }
+
+  .contact-grid {
+    @apply grid grid-cols-[minmax(0,1.05fr)_minmax(300px,0.95fr)] gap-12 max-[980px]:grid-cols-1;
+  }
+
+  .contact-form {
+    @apply grid gap-3;
+  }
+
+  .contact-form label {
+    @apply font-black text-night;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    @apply w-full rounded-hotel border border-line bg-white px-4 py-[0.9rem] text-ink focus:border-rust focus:outline focus:outline-4 focus:outline-sun/40;
+  }
+
+  .form-status {
+    @apply m-0 min-h-6 font-extrabold text-forest;
+  }
+
+  .contact-card {
+    @apply bg-night text-white;
+  }
+
+  address {
+    @apply grid gap-[0.45rem] not-italic;
+  }
+
+  .site-footer {
+    @apply bg-night pt-16 text-white;
+  }
+
+  .footer-grid {
+    @apply grid grid-cols-[1.2fr_0.8fr_0.8fr] gap-12 pb-12 max-[980px]:grid-cols-1;
+  }
+
+  .footer-brand {
+    @apply mb-4;
+  }
+
+  .site-footer .brand-name,
+  .site-footer .brand-subtitle {
+    @apply text-white;
+  }
+
+  .site-footer p,
+  .site-footer address,
+  .footer-links a {
+    @apply text-white/70;
+  }
+
+  .footer-social {
+    @apply mt-[0.55rem] flex gap-[0.7rem];
+  }
+
+  .footer-social a {
+    @apply inline-flex h-[2.35rem] w-[2.35rem] items-center justify-center rounded-full border border-sun/40 bg-white/5 text-white shadow-[0_10px_24px_rgba(0,0,0,0.16)] transition-all duration-200 hover:-translate-y-0.5 hover:scale-[1.06] hover:border-sun hover:bg-sun hover:text-night hover:shadow-[0_12px_28px_rgba(198,160,94,0.34)] focus-visible:-translate-y-0.5 focus-visible:scale-[1.06] focus-visible:border-sun focus-visible:bg-sun focus-visible:text-night focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-white;
+  }
+
+  .footer-links {
+    @apply grid gap-[0.7rem];
+  }
+
+  .footer-links a {
+    @apply hover:text-sun;
+  }
+
+  .footer-bottom {
+    @apply border-t border-white/10 p-4 text-center text-[0.88rem] text-white/60;
+  }
+
+  .rooms-hero {
+    @apply relative overflow-hidden py-28 pt-36 text-white max-[760px]:py-[4.5rem] max-[760px]:pt-24;
+    background: linear-gradient(90deg, rgba(21, 33, 40, 0.86), rgba(21, 33, 40, 0.35)), url("../assets/images/front full hotel image.png") center/cover;
+  }
+
+  .rooms-hero-inner {
+    @apply max-w-[820px];
+  }
+
+  .rooms-hero p {
+    @apply max-w-[650px] text-white/80;
+  }
+
+  .rooms-intro {
+    @apply pb-8;
+  }
+
+  .rooms-intro-grid {
+    @apply grid grid-cols-[0.9fr_1.1fr] items-end gap-12 max-[980px]:grid-cols-1;
+  }
+
+  .rooms-intro h2 {
+    @apply m-0 font-heading text-[clamp(2.4rem,5vw,4.8rem)] leading-none;
+  }
+
+  .luxury-rooms {
+    @apply pt-8;
+  }
+
+  .room-showcase {
+    @apply grid gap-[1.4rem];
+  }
+
+  .luxury-room-card {
+    @apply grid min-h-[430px] grid-cols-[minmax(320px,0.94fr)_minmax(0,1.06fr)] overflow-hidden rounded-hotel border border-line bg-paper shadow-soft transition-all duration-200 hover:-translate-y-[5px] hover:border-moss/50 hover:shadow-lift max-[980px]:grid-cols-1;
+  }
+
+  .featured-room {
+    @apply border-rust/40;
+  }
+
+  .room-image {
+    @apply relative min-h-[360px] overflow-hidden max-[480px]:min-h-[280px];
+  }
+
+  .room-image img {
+    @apply h-full w-full object-cover transition-transform duration-500;
+  }
+
+  .luxury-room-card:hover .room-image img {
+    @apply scale-[1.04];
+  }
+
+  .room-badge {
+    @apply absolute left-[1.2rem] top-[1.2rem] rounded-full bg-paper/95 px-[0.8rem] py-2 text-[0.72rem] font-black uppercase tracking-[0.1em] text-night;
+  }
+
+  .room-details {
+    @apply flex flex-col justify-center p-12 max-[760px]:p-8;
+  }
+
+  .room-heading {
+    @apply mb-4 flex justify-between gap-6 max-[760px]:grid;
+  }
+
+  .room-heading h2 {
+    @apply m-0 font-heading text-[clamp(2rem,4vw,3.4rem)] leading-none;
+  }
+
+  .room-size {
+    @apply inline-flex h-[68px] w-[68px] flex-none items-center justify-center rounded-full border border-moss/50 font-black text-forest;
+  }
+
+  .room-details p {
+    @apply text-text;
+  }
+
+  .room-features {
+    @apply mb-8 flex list-none flex-wrap gap-[0.65rem] p-0;
+  }
+
+  .room-features li {
+    @apply rounded-full border border-line bg-cloud px-[0.72rem] py-[0.45rem] text-[0.82rem] font-black text-forest;
+  }
+
+  .room-details .button {
+    @apply w-fit max-[480px]:w-full;
+  }
+
+  .room-service-band {
+    @apply bg-night text-white;
+  }
+
+  .service-band-inner {
+    @apply grid grid-cols-[0.9fr_1.1fr] items-center gap-12 max-[980px]:grid-cols-1;
+  }
+
+  .service-band-inner h2 {
+    @apply m-0 font-heading text-[clamp(2rem,4vw,3.8rem)] leading-[1.05];
+  }
+
+  .service-list {
+    @apply grid grid-cols-2 gap-[0.8rem] max-[760px]:grid-cols-1;
+  }
+
+  .service-list span {
+    @apply rounded-hotel border border-white/15 bg-white/5 p-4 font-extrabold text-white/80;
+  }
+
+  .reveal {
+    @apply translate-y-[18px] opacity-0 transition-all duration-500;
+  }
+
+  .reveal.is-visible {
+    @apply translate-y-0 opacity-100;
+  }
+}
